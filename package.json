@@ -1,5 +1,5 @@
 {
-  "name": "telegram-cloud-uploader",
+  "name": "Subham_cloud-server",
   "dependencies": {
     "busboy": "^1.6.0",
     "form-data": "^4.0.0",
