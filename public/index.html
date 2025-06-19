@@ -1,27 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Upload to Telegram Cloud</title>
-</head>
+  <title>Telegram Cloud Uploader</title>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <h2>Upload File to Your Telegram Cloud</h2>
-  <form id="uploadForm" enctype="multipart/form-data">
-    <input type="file" name="file" required />
-    <button type="submit">Upload</button>
-  </form>
-  <p id="message"></p>
+  <div class="upload-container">
+    <h2>Upload File to Your Telegram Cloud</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" name="file" required />
+      <button type="submit">Upload</button>
+    </form>
+    <p id="message"></p>
+  </div>
 
   <script>
-    document.getElementById("uploadForm").onsubmit = async function (e) {
+    const form = document.getElementById("uploadForm");
+    const message = document.getElementById("message");
+
+    form.onsubmit = async function (e) {
       e.preventDefault();
       const formData = new FormData(this);
+      message.innerText = "⏳ Uploading...";
+      message.style.color = "#ffffcc";
+
       const response = await fetch("/api/upload", {
         method: "POST",
         body: formData
       });
+
       const text = await response.text();
-      document.getElementById("message").innerText = text;
+      message.innerText = text;
+      message.style.color = text.includes("✅") ? "#00ffcc" : "#ffaaaa";
     };
   </script>
 </body>
