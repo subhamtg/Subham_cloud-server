@@ -1,4 +1,4 @@
-/* ✨ Intro Animation for Body */
+/* ✨ Body & Background */
 body {
   margin: 0;
   padding: 0;
@@ -6,33 +6,50 @@ body {
   height: 100vh;
   background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
   background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite, fadeInPage 2s ease-in-out;
+  animation: gradientBG 15s ease infinite;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-/* 🌈 Gradient Background Animation */
+/* 🌈 Background Animation */
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* 🌟 Fade In Intro Page */
-@keyframes fadeInPage {
-  0% { opacity: 0; transform: scale(1.2); }
-  100% { opacity: 1; transform: scale(1); }
+/* 🌟 Intro Screen */
+#intro-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100vh;
+  background: linear-gradient(-45deg, #a1c4fd, #c2e9fb, #fad0c4, #ff9a9e);
+  background-size: 400% 400%;
+  animation: gradientBG 8s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  text-align: center;
 }
 
-/* 📦 Upload Container */
+#intro-screen h1 {
+  font-size: 2.2em;
+  color: #fff;
+  animation: bounce 1s infinite, fadeInPage 1s ease-in-out;
+  text-shadow: 0 0 10px rgba(0,0,0,0.4);
+  padding: 0 20px;
+}
+
+/* 🌀 Main Upload UI */
 .upload-container {
   background: rgba(255, 255, 255, 0.15);
-  padding: 40px;
+  padding: 35px 40px;
   border-radius: 20px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   animation: floatUp 6s ease-in-out infinite, fadeInBox 1s ease;
   text-align: center;
   color: #fff;
@@ -40,24 +57,24 @@ body {
   width: 90%;
 }
 
-/* 📄 Title */
+/* 🔠 Title */
 .upload-container h2 {
   margin-bottom: 20px;
-  font-size: 2em;
+  font-size: 1.8em;
   letter-spacing: 1px;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* 📁 File input */
+/* 📂 File Input */
 .upload-container input[type="file"] {
   display: block;
-  margin: 0 auto 15px;
+  margin: 0 auto 20px;
   font-size: 1em;
 }
 
-/* ⚡ Button with animation */
+/* 🖱️ Upload Button */
 .upload-container button {
-  background: linear-gradient(to right, #ffffff, #f9f9f9);
+  background: linear-gradient(to right, #ffffff, #e0e0e0);
   color: #333;
   border: none;
   padding: 12px 30px;
@@ -66,29 +83,39 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
   animation: pulseButton 2s infinite;
 }
 
 .upload-container button:hover {
-  background: #ffffffdd;
+  background: #fff;
   color: #000;
   transform: scale(1.05);
 }
 
-/* ✅ Message Area Styling */
+/* ✅ Message Styling */
 #message {
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 1.1em;
-  color: #fff;
-  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  font-weight: 500;
+  text-shadow: 0 0 4px rgba(0,0,0,0.4);
   animation: slideIn 0.5s ease-in-out;
   transition: all 0.3s ease;
 }
 
-/* 🌀 Keyframe Animations */
+/* 🔑 Keyframe Animations */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes fadeInPage {
+  0% { opacity: 0; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
 @keyframes floatUp {
-  0%, 100% { transform: translateY(0px); }
+  0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
@@ -98,8 +125,8 @@ body {
 }
 
 @keyframes pulseButton {
-  0%, 100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); }
-  50% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+  0%, 100% { box-shadow: 0 0 10px rgba(255,255,255,0.4); }
+  50% { box-shadow: 0 0 20px rgba(255,255,255,1); }
 }
 
 @keyframes slideIn {
