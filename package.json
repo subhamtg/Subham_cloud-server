@@ -1,0 +1,8 @@
+{
+  "name": "telegram-cloud-uploader",
+  "dependencies": {
+    "busboy": "^1.6.0",
+    "form-data": "^4.0.0",
+    "node-fetch": "^2.6.9"
+  }
+}
