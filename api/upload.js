@@ -1,3 +1,4 @@
+// /api/upload.js (on Vercel)
 const FormData = require('form-data');
 const fetch = require('node-fetch');
 
@@ -38,7 +39,7 @@ export default async function handler(req, res) {
         if (result.ok) {
           res.status(200).send("✅ File sent to Telegram!");
         } else {
-          res.status(500).send("❌ Telegram Error: " + JSON.stringify(result));
+          res.status(500).send("❌ Telegram Error: " + result.description);
         }
       } catch (err) {
         res.status(500).send("❌ Upload Failed: " + err.message);
