@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload to Telegram Cloud</title>
+</head>
+<body>
+  <h2>Upload File to Your Telegram Cloud</h2>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" name="file" required />
+    <button type="submit">Upload</button>
+  </form>
+  <p id="message"></p>
+
+  <script>
+    document.getElementById("uploadForm").onsubmit = async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData
+      });
+      const text = await response.text();
+      document.getElementById("message").innerText = text;
+    };
+  </script>
+</body>
+</html>
