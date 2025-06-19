@@ -8,12 +8,19 @@
 </head>
 <body>
 
-  <!-- 🌟 6-Second Intro Screen -->
+  <!-- 🎭 3D Mask Intro -->
   <div id="intro-screen">
-    <h1>✨ WELCOME SUBHAM WEB-CLOUD ☁️</h1>
+    <div class="sketchfab-frame">
+      <iframe title="Cyberpunk Kitsune Mask" frameborder="0" allowfullscreen
+        mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        src="https://sketchfab.com/models/813b5f9aabe149cbb53e86d97ec85fe2/embed?autostart=1&ui_infos=0&ui_controls=0&ui_theme=dark">
+      </iframe>
+    </div>
+    <h1>✨ SUBHAM WEB-CLOUD ☁️</h1>
   </div>
 
-  <!-- 📤 Main Upload UI -->
+  <!-- 📤 Upload UI -->
   <div class="upload-container" id="main-app" style="display:none;">
     <h2>Upload File to Your Telegram Cloud</h2>
     <form id="uploadForm" enctype="multipart/form-data">
@@ -24,10 +31,13 @@
   </div>
 
   <script>
-    // ⏱️ Show main UI after 6s
+    // 🎬 Transition from intro to main app after 6s
     setTimeout(() => {
-      document.getElementById("intro-screen").style.display = "none";
-      document.getElementById("main-app").style.display = "block";
+      document.getElementById("intro-screen").style.opacity = 0;
+      setTimeout(() => {
+        document.getElementById("intro-screen").style.display = "none";
+        document.getElementById("main-app").style.display = "block";
+      }, 1000);
     }, 6000);
 
     // 📤 Upload Script
@@ -50,5 +60,6 @@
       message.style.color = text.includes("✅") ? "#00ffcc" : "#ff6b6b";
     };
   </script>
+
 </body>
 </html>
