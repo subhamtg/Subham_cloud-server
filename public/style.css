@@ -1,0 +1,84 @@
+/* Background Gradient Animation */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background Transition Animation */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Upload Container */
+.upload-container {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 1s ease, floatUp 6s ease-in-out infinite;
+  text-align: center;
+  color: #fff;
+  max-width: 400px;
+  width: 90%;
+}
+
+/* Title */
+.upload-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  letter-spacing: 1px;
+}
+
+/* File input */
+.upload-container input[type="file"] {
+  display: block;
+  margin: 0 auto 15px;
+  font-size: 1em;
+}
+
+/* Button Style */
+.upload-container button {
+  background-color: #ffffffcc;
+  color: #333;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-container button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Message Styling */
+#message {
+  margin-top: 15px;
+  font-size: 1em;
+  color: #fff;
+  text-shadow: 0 0 3px rgba(0,0,0,0.4);
+}
+
+/* Fade In + Floating Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
