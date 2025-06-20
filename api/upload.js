@@ -37,7 +37,7 @@ export default async function handler(req, res) {
 
         const result = await tgRes.json();
         if (result.ok) {
-          res.status(200).send("✅ File sent to Telegram!");
+          res.status(200).send("✅ File sent to Cloud Server");
         } else {
           res.status(500).send("❌ Telegram Error: " + result.description);
         }
